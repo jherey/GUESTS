@@ -3,43 +3,25 @@
 	include_once("header.html");
 
 	if(isset($_POST['Submit'])) {	
-	$name = mysqli_real_escape_string($mysqli, $_POST['name']);
-	$day = mysqli_real_escape_string($mysqli, $_POST['day']);
-	$signin = mysqli_real_escape_string($mysqli, $_POST['signin']);
-	$signout = mysqli_real_escape_string($mysqli, $_POST['signout']);
+		$name = mysqli_real_escape_string($mysqli, $_POST['name']);
+		$day = mysqli_real_escape_string($mysqli, $_POST['day']);
+		$signin = mysqli_real_escape_string($mysqli, $_POST['signin']);
+		$signout = mysqli_real_escape_string($mysqli, $_POST['signout']);
 		
-	// checking empty fields
-	//if(empty($name) || empty($day) || empty($signin) || empty($signout)) {
-				
 		if(empty($name)) {
 			echo "<font color='red'>Name field is empty.</font><br/>";
 			//link to the previous page
-		echo "<br/><a href='javascript:self.history.back();'>Go Back</a>";
+			echo "<br/><a href='javascript:self.history.back();'>Go Back</a>";
+		} else { 
+			// if all the fields are filled (not empty) 
+			//insert data to database
+			$result = mysqli_query($mysqli, "INSERT INTO `visitors` (`id`, `name`, `day`, `sign in`, `sign out`) VALUES (NULL, '{$_POST["name"]}', '{$_POST["day"]}', '{$_POST["signin"]}', '{$_POST["signout"]}')");
+			//Get the last user_id
+			$last_id = $mysqli->insert_id;
+			//redirectig to the view page
+			header("Location: view.php?id=$last_id");
 		}
-		
-	// 	if(empty($day)) {
-	// 		echo "<font color='red'>Day field is empty.</font><br/>";
-	// 	}
-		
-	// 	if(empty($signin)) {
-	// 		echo "<font color='red'>Sign in field is empty.</font><br/>";
-	// 	}
-
-	// 	if(empty($signout)) {
-	// 		echo "<font color='red'>Sign out field is empty.</font><br/>";
-	// 	}
-		
-		
-	 else { 
-		// if all the fields are filled (not empty) 
-		//insert data to database
-		$result = mysqli_query($mysqli, "INSERT INTO `visitors` (`id`, `name`, `day`, `sign in`, `sign out`) VALUES (NULL, '{$_POST["name"]}', '{$_POST["day"]}', '{$_POST["signin"]}', '{$_POST["signout"]}')");
-		//Get the last user_id
-		$last_id = $mysqli->insert_id;
-		//redirectig to the view page
-		header("Location: view.php?id=$last_id");
 	}
-}
 ?>
 
 <html>

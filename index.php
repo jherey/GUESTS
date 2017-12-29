@@ -24,7 +24,7 @@ $result = mysqli_query($mysqli, "SELECT * FROM visitors ORDER BY id DESC"); // u
 
 	<div class="container">
 		<div class="jumbotron">
-			<table style="width: 100%;" class="table">
+			<table class="table">
 			<thead>
 			<tr>
 				<th scope="col">Name</th>
@@ -43,7 +43,7 @@ $result = mysqli_query($mysqli, "SELECT * FROM visitors ORDER BY id DESC"); // u
 					echo "<td>".date($res['day'])."</td>";
 					echo "<td>".$res['sign in']."</td>";
 					echo "<td>".$res['sign out']."</td>";	
-					echo "<td><a href=\"view.php?id=$res[id]\" class=\"btn btn-success btn-md butt\"><span class=\"glyphicon glyphicon-info-sign\"></span> View</a>  <a href=\"edit.php?id=$res[id]\" class=\"btn btn-info btn-md butt\"><span class=\"glyphicon glyphicon-edit\"></span> Edit</a>  <a href=\"delete.php?id=$res[id]\" class=\"btn btn-danger btn-md butt\" onClick=\"return confirm('Are you sure you want to delete?')\"><span class=\"glyphicon glyphicon-trash\"></span> Delete</a></td>";		
+					echo "<td><a href=\"view.php?id=$res[id]\" class=\"btn btn-success btn-sm\"><span class=\"glyphicon glyphicon-info-sign\"></span> View</a>  <a href=\"edit.php?id=$res[id]\" class=\"btn btn-info btn-sm\"><span class=\"glyphicon glyphicon-edit\"></span> Edit</a>  <a href=\"delete.php?id=$res[id]\" class=\"btn btn-danger btn-sm\" onClick=\"return confirm('Are you sure you want to delete?')\"><span class=\"glyphicon glyphicon-trash\"></span> Delete</a></td>";		
 				}
 			?>
 			</tbody>

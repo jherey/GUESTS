@@ -22,16 +22,9 @@ body {
     text-align: center;
 }
 
-.table {
-	border: none;
-	border-collapse: collapse;
-	table-layout: fixed;
-	width: 100%
-}
-
 .table tr {
 	border: 1px solid #ddd;
-	padding: .35em;
+	padding: .15em;
 }
 
 .table tr:nth-child(even) {
@@ -46,16 +39,11 @@ body {
 	text-transform: uppercase;
 }
 
-.table td {
+/*.table td {
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
-}
-
-.table > th, td {
-    padding: 8px;
-    border: none;
-}
+}*/
 
 .title {
 	text-align: center;
@@ -73,7 +61,7 @@ body {
 
 .butt {
 	display: inline-block;
-	margin-right: 15px;
+	margin-right: 5px;
 }
 
 .new {
